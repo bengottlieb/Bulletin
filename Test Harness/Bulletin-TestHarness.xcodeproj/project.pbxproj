@@ -11,14 +11,25 @@
 		B50600452737DD2A00D3B757 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50600442737DD2A00D3B757 /* ContentView.swift */; };
 		B50600472737DD2B00D3B757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B50600462737DD2B00D3B757 /* Assets.xcassets */; };
 		B506004A2737DD2B00D3B757 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B50600492737DD2B00D3B757 /* Preview Assets.xcassets */; };
+		B50600532737DE0300D3B757 /* BulletinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50600522737DE0300D3B757 /* BulletinView.swift */; };
+		B50600552737DE9600D3B757 /* Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50600542737DE9600D3B757 /* Bulletin.swift */; };
+		B50600572737E07700D3B757 /* BulletinContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50600562737E07700D3B757 /* BulletinContentView.swift */; };
+		B50600592737E08200D3B757 /* BulletinWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50600582737E08200D3B757 /* BulletinWebView.swift */; };
+		B506005B2737E1C700D3B757 /* WebView+Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B506005A2737E1C700D3B757 /* WebView+Bulletin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B506003F2737DD2A00D3B757 /* Bulletin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bulletin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B506003F2737DD2A00D3B757 /* Bulletin-TestHarness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bulletin-TestHarness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B50600422737DD2A00D3B757 /* BulletinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinApp.swift; sourceTree = "<group>"; };
 		B50600442737DD2A00D3B757 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B50600462737DD2B00D3B757 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B50600492737DD2B00D3B757 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B50600522737DE0300D3B757 /* BulletinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinView.swift; sourceTree = "<group>"; };
+		B50600542737DE9600D3B757 /* Bulletin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bulletin.swift; sourceTree = "<group>"; };
+		B50600562737E07700D3B757 /* BulletinContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinContentView.swift; sourceTree = "<group>"; };
+		B50600582737E08200D3B757 /* BulletinWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinWebView.swift; sourceTree = "<group>"; };
+		B506005A2737E1C700D3B757 /* WebView+Bulletin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+Bulletin.swift"; sourceTree = "<group>"; };
+		B506005C2737EB4400D3B757 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +46,9 @@
 		B50600362737DD2A00D3B757 = {
 			isa = PBXGroup;
 			children = (
-				B50600412737DD2A00D3B757 /* Bulletin */,
+				B506005C2737EB4400D3B757 /* Package.swift */,
+				B50600502737DDF400D3B757 /* Sources */,
+				B50600412737DD2A00D3B757 /* App */,
 				B50600402737DD2A00D3B757 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,12 +56,12 @@
 		B50600402737DD2A00D3B757 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B506003F2737DD2A00D3B757 /* Bulletin.app */,
+				B506003F2737DD2A00D3B757 /* Bulletin-TestHarness.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B50600412737DD2A00D3B757 /* Bulletin */ = {
+		B50600412737DD2A00D3B757 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				B50600422737DD2A00D3B757 /* BulletinApp.swift */,
@@ -56,7 +69,7 @@
 				B50600462737DD2B00D3B757 /* Assets.xcassets */,
 				B50600482737DD2B00D3B757 /* Preview Content */,
 			);
-			path = Bulletin;
+			path = App;
 			sourceTree = "<group>";
 		};
 		B50600482737DD2B00D3B757 /* Preview Content */ = {
@@ -67,12 +80,33 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		B50600502737DDF400D3B757 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B50600512737DDF400D3B757 /* Bulletin */,
+			);
+			name = Sources;
+			path = ../Sources;
+			sourceTree = "<group>";
+		};
+		B50600512737DDF400D3B757 /* Bulletin */ = {
+			isa = PBXGroup;
+			children = (
+				B50600522737DE0300D3B757 /* BulletinView.swift */,
+				B50600562737E07700D3B757 /* BulletinContentView.swift */,
+				B50600582737E08200D3B757 /* BulletinWebView.swift */,
+				B506005A2737E1C700D3B757 /* WebView+Bulletin.swift */,
+				B50600542737DE9600D3B757 /* Bulletin.swift */,
+			);
+			path = Bulletin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B506003E2737DD2A00D3B757 /* Bulletin */ = {
+		B506003E2737DD2A00D3B757 /* Bulletin-TestHarness */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B506004D2737DD2B00D3B757 /* Build configuration list for PBXNativeTarget "Bulletin" */;
+			buildConfigurationList = B506004D2737DD2B00D3B757 /* Build configuration list for PBXNativeTarget "Bulletin-TestHarness" */;
 			buildPhases = (
 				B506003B2737DD2A00D3B757 /* Sources */,
 				B506003C2737DD2A00D3B757 /* Frameworks */,
@@ -82,9 +116,9 @@
 			);
 			dependencies = (
 			);
-			name = Bulletin;
+			name = "Bulletin-TestHarness";
 			productName = Bulletin;
-			productReference = B506003F2737DD2A00D3B757 /* Bulletin.app */;
+			productReference = B506003F2737DD2A00D3B757 /* Bulletin-TestHarness.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +136,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B506003A2737DD2A00D3B757 /* Build configuration list for PBXProject "Bulletin" */;
+			buildConfigurationList = B506003A2737DD2A00D3B757 /* Build configuration list for PBXProject "Bulletin-TestHarness" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +149,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B506003E2737DD2A00D3B757 /* Bulletin */,
+				B506003E2737DD2A00D3B757 /* Bulletin-TestHarness */,
 			);
 		};
 /* End PBXProject section */
@@ -137,8 +171,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B50600572737E07700D3B757 /* BulletinContentView.swift in Sources */,
+				B50600552737DE9600D3B757 /* Bulletin.swift in Sources */,
+				B50600592737E08200D3B757 /* BulletinWebView.swift in Sources */,
+				B50600532737DE0300D3B757 /* BulletinView.swift in Sources */,
 				B50600452737DD2A00D3B757 /* ContentView.swift in Sources */,
 				B50600432737DD2A00D3B757 /* BulletinApp.swift in Sources */,
+				B506005B2737E1C700D3B757 /* WebView+Bulletin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +307,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Bulletin/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
 				DEVELOPMENT_TEAM = YY6CWUX533;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -298,7 +337,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Bulletin/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
 				DEVELOPMENT_TEAM = YY6CWUX533;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -324,7 +363,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B506003A2737DD2A00D3B757 /* Build configuration list for PBXProject "Bulletin" */ = {
+		B506003A2737DD2A00D3B757 /* Build configuration list for PBXProject "Bulletin-TestHarness" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B506004B2737DD2B00D3B757 /* Debug */,
@@ -333,7 +372,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B506004D2737DD2B00D3B757 /* Build configuration list for PBXNativeTarget "Bulletin" */ = {
+		B506004D2737DD2B00D3B757 /* Build configuration list for PBXNativeTarget "Bulletin-TestHarness" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B506004E2737DD2B00D3B757 /* Debug */,
