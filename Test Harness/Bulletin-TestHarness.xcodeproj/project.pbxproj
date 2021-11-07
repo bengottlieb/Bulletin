@@ -29,7 +29,7 @@
 		B50600562737E07700D3B757 /* BulletinContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinContentView.swift; sourceTree = "<group>"; };
 		B50600582737E08200D3B757 /* BulletinWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinWebView.swift; sourceTree = "<group>"; };
 		B506005A2737E1C700D3B757 /* WebView+Bulletin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+Bulletin.swift"; sourceTree = "<group>"; };
-		B506005C2737EB4400D3B757 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		B506005D2737EBE800D3B757 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 		B50600362737DD2A00D3B757 = {
 			isa = PBXGroup;
 			children = (
-				B506005C2737EB4400D3B757 /* Package.swift */,
+				B506005D2737EBE800D3B757 /* Package.swift */,
 				B50600502737DDF400D3B757 /* Sources */,
 				B50600412737DD2A00D3B757 /* App */,
 				B50600402737DD2A00D3B757 /* Products */,
