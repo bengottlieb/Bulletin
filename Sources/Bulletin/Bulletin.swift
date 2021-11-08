@@ -14,6 +14,7 @@ public class Bulletin: NSObject, ObservableObject, WKNavigationDelegate {
 	let html: String?
 	let webView: WKWebView
 	var currentNavigation: WKNavigation?
+    @Published var hasLoadedOnce = false
 	@Published var loadingState: LoadingState = .notLoaded
 
 	enum LoadingState: Equatable { case notLoaded, inProgress, loaded, failed(Error)
@@ -32,7 +33,7 @@ public class Bulletin: NSObject, ObservableObject, WKNavigationDelegate {
 		self.html = html
 		
 		let configuration = WKWebViewConfiguration()
-		webView = WKWebView(frame: .zero, configuration: configuration)
+        webView = WKWebView(frame: UIScreen.main.bounds, configuration: configuration)
 		
 		super.init()
 		webView.navigationDelegate = self
@@ -40,7 +41,10 @@ public class Bulletin: NSObject, ObservableObject, WKNavigationDelegate {
 	}
 
 	public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-		withAnimation { loadingState = .loaded }
+		withAnimation {
+            hasLoadedOnce = true
+            loadingState = .loaded
+        }
 	}
 	
 	public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
