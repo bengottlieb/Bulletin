@@ -16,6 +16,8 @@
 		B50600572737E07700D3B757 /* BulletinContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50600562737E07700D3B757 /* BulletinContentView.swift */; };
 		B50600592737E08200D3B757 /* BulletinWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50600582737E08200D3B757 /* BulletinWebView.swift */; };
 		B506005B2737E1C700D3B757 /* WebView+Bulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B506005A2737E1C700D3B757 /* WebView+Bulletin.swift */; };
+		B50600602739344B00D3B757 /* bulletin.html in Resources */ = {isa = PBXBuildFile; fileRef = B506005F2739344B00D3B757 /* bulletin.html */; };
+		B5060063273934B200D3B757 /* Suite in Frameworks */ = {isa = PBXBuildFile; productRef = B5060062273934B200D3B757 /* Suite */; };
 		B53593A62737FAD30025F26F /* BulletinView+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53593A52737FAD30025F26F /* BulletinView+Enums.swift */; };
 		B53593A82737FC290025F26F /* Bulletin+Placement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53593A72737FC290025F26F /* Bulletin+Placement.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,7 @@
 		B50600582737E08200D3B757 /* BulletinWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinWebView.swift; sourceTree = "<group>"; };
 		B506005A2737E1C700D3B757 /* WebView+Bulletin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+Bulletin.swift"; sourceTree = "<group>"; };
 		B506005D2737EBE800D3B757 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
+		B506005F2739344B00D3B757 /* bulletin.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = bulletin.html; sourceTree = "<group>"; };
 		B53593A52737FAD30025F26F /* BulletinView+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BulletinView+Enums.swift"; sourceTree = "<group>"; };
 		B53593A72737FC290025F26F /* Bulletin+Placement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bulletin+Placement.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5060063273934B200D3B757 /* Suite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +72,7 @@
 		B50600412737DD2A00D3B757 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				B506005E2739344B00D3B757 /* Resources */,
 				B50600422737DD2A00D3B757 /* BulletinApp.swift */,
 				B50600442737DD2A00D3B757 /* ContentView.swift */,
 				B50600462737DD2B00D3B757 /* Assets.xcassets */,
@@ -107,6 +112,14 @@
 			path = Bulletin;
 			sourceTree = "<group>";
 		};
+		B506005E2739344B00D3B757 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B506005F2739344B00D3B757 /* bulletin.html */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,6 +136,9 @@
 			dependencies = (
 			);
 			name = "Bulletin-TestHarness";
+			packageProductDependencies = (
+				B5060062273934B200D3B757 /* Suite */,
+			);
 			productName = Bulletin;
 			productReference = B506003F2737DD2A00D3B757 /* Bulletin-TestHarness.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +167,9 @@
 				Base,
 			);
 			mainGroup = B50600362737DD2A00D3B757;
+			packageReferences = (
+				B5060061273934B200D3B757 /* XCRemoteSwiftPackageReference "suite" */,
+			);
 			productRefGroup = B50600402737DD2A00D3B757 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -165,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B50600602739344B00D3B757 /* bulletin.html in Resources */,
 				B506004A2737DD2B00D3B757 /* Preview Assets.xcassets in Resources */,
 				B50600472737DD2B00D3B757 /* Assets.xcassets in Resources */,
 			);
@@ -390,6 +410,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B5060061273934B200D3B757 /* XCRemoteSwiftPackageReference "suite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bengottlieb/suite";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B5060062273934B200D3B757 /* Suite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B5060061273934B200D3B757 /* XCRemoteSwiftPackageReference "suite" */;
+			productName = Suite;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B50600372737DD2A00D3B757 /* Project object */;
 }

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/ben/Documents/ManagedProjects/Frameworks/Bulletin/Bulletin-TestHarness.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
