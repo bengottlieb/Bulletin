@@ -12,6 +12,7 @@ public class Bulletin: NSObject, ObservableObject, WKNavigationDelegate {
 	let url: URL?
 	let html: String?
 	var webView: WKWebView!
+    var disabledScrolling = true
 	var currentNavigation: WKNavigation?
 	@Published public var hasLoadedOnce = false
 	@Published public var loadingState: LoadingState = .notLoaded
@@ -28,14 +29,14 @@ public class Bulletin: NSObject, ObservableObject, WKNavigationDelegate {
 		}
 	}
 	
-	public init(url: URL? = nil, html: String? = nil, file: String? = nil) {
+    public init(url: URL? = nil, html: String? = nil, file: String? = nil, disableScrolling: Bool = true) {
 		if let filename = file {
 			self.url = Bundle.main.url(forResource: filename, withExtension: nil)
 		} else {
 			self.url = url
 		}
 		self.html = html
-		
+        self.disabledScrolling = disableScrolling
 		super.init()
 		webView = WKWebView(frame: UIScreen.main.bounds, configuration: configuration)
 		
@@ -43,6 +44,18 @@ public class Bulletin: NSObject, ObservableObject, WKNavigationDelegate {
 		currentNavigation = webView.load(self)
 	}
 	
+    func loadFinished() {
+        updateScrolling()
+    }
+    
+    func updateScrolling() {
+        if disabledScrolling, webView.scrollView.contentSize.height <= webView.bounds.height {
+            webView.scrollView.isScrollEnabled = false
+        } else {
+            webView.scrollView.isScrollEnabled = true
+        }
+    }
+    
 	public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 		withAnimation {
 			hasLoadedOnce = true

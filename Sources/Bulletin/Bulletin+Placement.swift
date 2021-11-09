@@ -11,6 +11,8 @@ struct PlacedBulletinView<Content: View>: View {
     let content: Content
     @ObservedObject var bulletin: Bulletin
     @Binding var isVisible: Bool
+    @State var dragOffset = 0.0
+    @State var contentSize = CGSize.zero
     
     let placement: BulletinView.Placement
     let blockingColor: Color
@@ -23,20 +25,42 @@ struct PlacedBulletinView<Content: View>: View {
                 Rectangle()
                     .fill(showContent ? blockingColor : .clear)
                 
-                if isVisible {
+                if showContent {
                     ZStack() {
+                        
                         VStack(spacing: 0) {
                             Rectangle()
                                 .fill(Color.clear)
                                 .frame(height: placement.topSpacerHeight(in: geo))
                             
-                            content
+                            ZStack() {
+                                content
+                                    .sizeReporting($contentSize)
+                                    .onAppear {
+                                        DispatchQueue.main.async(after: 0.25) { bulletin.updateScrolling() }
+                                    }
+                            }
                             
                             Rectangle()
                                 .fill(Color.clear)
                                 .frame(height: placement.bottomSpacerHeight(in: geo))
                         }
                     }
+                    .offset(y: dragOffset)
+                    .gesture(DragGesture(minimumDistance: 10).onChanged { value in
+                        dragOffset = max(value.translation.height, 0)
+                    }.onEnded { gesture in
+                        let duration: TimeInterval = 0.2
+                        if gesture.predictedEndTranslation.height > UIScreen.main.bounds.height / 2 {
+                            withAnimation(.easeOut(duration: duration)) { dragOffset = UIScreen.main.bounds.height }
+                            DispatchQueue.main.async(after: duration) {
+                                isVisible = false
+                                dragOffset = 0
+                            }
+                        } else {
+                            withAnimation(.easeOut(duration: duration)) { dragOffset = 0 }
+                        }
+                    })
                     .transition(.move(edge: .bottom))
                 }
             }
